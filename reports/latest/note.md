@@ -1,6 +1,6 @@
 # USD/INR fair value note, September 2026
 
-Data to September 2026 · run `20261002-155329` · written 02 Oct 2026
+Data to September 2026 · run `20261015-105328` · written 15 Oct 2026
 
 ## The reading
 
@@ -12,7 +12,9 @@ The two components agree: the productivity-based REER anchor puts the rupee +18.
 
 No new month of exchange-rate data since the last note (Sep 2026); the reading is unchanged at +15.7%.
 
-No source published new or revised data since the last refresh.
+New and revised data this month:
+
+- **US and market data (FRED)**: 26 new observations, now to Oct 2026.
 
 ## Risk regime
 
@@ -32,7 +34,7 @@ Over the same months the RBI sold a net US$14.7 bn, counting forwards. Valued at
 
 Out of sample (Jun 2010 to Sep 2025), the misalignment signal has a slightly lower forecast error than a random walk with drift at a 12-month horizon (forecast error ratio 0.964, Clark-West p = 0.12), but the difference is not statistically significant. Read the misalignment as a valuation gauge, not a timing signal.
 
-Also: the market-based BEER (+25.1%) fails its long-run test, so it is shown for context only; the India-only REER model fails its long-run test; the productivity anchor passes its long-run test (p 0.023) but not once the 12 specifications tried are allowed for (p 0.25), so its equilibrium is suggestive.
+Also: the market-based BEER (+24.9%) fails its long-run test, so it is shown for context only; the India-only REER model fails its long-run test; the productivity anchor passes its long-run test (p 0.023) but not once the 12 specifications tried are allowed for (p 0.25), so its equilibrium is suggestive.
 
 Letting large gaps revert faster, or letting the adjustment drift, did not forecast better out of sample.
 
@@ -45,6 +47,10 @@ Among 19 emerging-market currencies on the same model, the rupee is the 3rd most
 Against the IMF's own assessments (2017–2025, its current-account model), this model pointed the same way in 9 of 9 years and was 1.5 points more undervalued on average when the IMF published. The IMF's latest (2025) implies +8.9%.
 
 Data revisions matter little: re-run on the earlier vintage of RBI data, the reading changes by at most 0.5 points in any month (Jun 2026).
+
+## To do
+
+- MOSPI CPI ends Aug 2026 in both the RBI API and data/raw/manual/mospi_cpi_2024base.csv; Sep 2026 should be out. If the API lags, add it from https://www.mospi.gov.in/themes/product/9-consumer-price-index-cpi (Annexure IV).
 
 ---
 

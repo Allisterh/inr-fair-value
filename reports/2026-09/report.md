@@ -1,6 +1,6 @@
 # USD/INR fair value: run report
 
-inrfv 1.2.0 · run `20261002-155329` · as of **Sep 2026** (latest month with RBI USD/INR) · spot **95.41**
+inrfv 1.2.0 · run `20261015-105328` · as of **Sep 2026** (latest month with RBI USD/INR) · spot **95.41**
 
 All figures are point-in-time: each value uses only data published by that month-end. Positive misalignment = INR undervalued (weaker than fair).
 
@@ -16,8 +16,8 @@ All figures are point-in-time: each value uses only data published by that month
 | FEER, NIIP-stabilising norm | Sep 2026 | +0.9% | n/a | alternative norm |
 | FEER, legacy −2.5% norm | Sep 2026 | +14.2% | n/a | v0.2 assumption, for comparison |
 | FEER conditional (experimental) | Jun 2026 | +0.6% | n/a | ad hoc norm, not in composite |
-| BEER, current (real USD/INR, DOLS) | Sep 2026 | +25.1% | 76.29 | **not cointegrated**: descriptive only |
-| BEER, total (permanent fundamentals) | Sep 2026 | +21.4% | 78.56 | fundamentals at one-sided HP trend |
+| BEER, current (real USD/INR, DOLS) | Sep 2026 | +24.9% | 76.42 | **not cointegrated**: descriptive only |
+| BEER, total (permanent fundamentals) | Sep 2026 | +21.4% | 78.57 | fundamentals at one-sided HP trend |
 | Composite (REER+FEER) | Sep 2026 | +15.7% | 82.50 | drives the ECM |
 
 **Fair-value corridor (10th–90th percentile; joint bootstrap of panel parameters, FEER norm, elasticities, CA measurement and model weights): 77.90 – 85.77** (central 82.50, spot 95.41).
@@ -72,9 +72,9 @@ Real USD/INR with PPP imposed, regressed by dynamic OLS on long-run fundamentals
 
 | Spec | Sample | n | Coefficients (t, expected sign) | Engle-Granger p | Johansen rank |
 |---|---|---|---|---|---|
-| core (central) | 2000-02–2026-09 | 313 | log_dxy +0.716 (+10.0, +), rel_prod -0.406 (-9.7, -), real_rate_diff -0.002 (-0.5, -) | 0.972 | 0 |
+| core (central) | 2000-02–2026-09 | 313 | log_dxy +0.716 (+10.0, +), rel_prod -0.406 (-9.7, -), real_rate_diff -0.002 (-0.5, -) | 0.971 | 0 |
 | dxy | 2000-02–2026-09 | 314 | log_dxy +0.438 (+2.4, +) | 0.772 | 0 |
-| oil | 2000-02–2026-09 | 313 | log_dxy +1.036 (+7.8, +), rel_prod -0.541 (-11.7, -), real_rate_diff -0.001 (-0.2, -), log_brent +0.117 (+3.4, +) | 0.981 | 0 |
+| oil | 2000-02–2026-09 | 313 | log_dxy +1.036 (+7.8, +), rel_prod -0.541 (-11.7, -), real_rate_diff -0.001 (-0.3, -), log_brent +0.117 (+3.4, +) | 0.979 | 0 |
 | fwd | 2000-02–2026-08 | 312 | log_dxy +0.723 (+9.5, +), rel_prod -0.407 (-9.8, -), real_fwd_diff -0.002 (-0.6, -) | 0.978 | 0 |
 
 Coefficient range across re-estimations: log_dxy +0.29 to +0.71, rel_prod -0.93 to -0.41, real_rate_diff -0.00 to +0.01.
@@ -116,7 +116,7 @@ Switching odds driven by last month's VIX change, Brent change, FPI flows and RB
 | Brent (% change) | -542.9 | 1101.8 | 1131.9 | 0.70 | -1.9487 | -0.0036 | -0.52 | 0.70 | 0.64 |
 | FPI flows | -541.7 | 1099.3 | 1129.4 | 0.20 | -1.9722 | -0.0271 | -0.85 | 0.80 | 0.65 |
 | RBI intervention | -542.2 | 1100.5 | 1130.6 | 0.35 | -1.9639 | -0.0188 | -1.03 | 0.85 | 0.65 |
-| VIX (change), Brent (% change), FPI flows, RBI intervention | -541.1 | 1110.2 | 1162.8 | 0.82 | -2.4697 | -0.5247 | -2.27 | 0.99 | 0.58 |
+| VIX (change), Brent (% change), FPI flows, RBI intervention | -541.1 | 1110.2 | 1162.8 | 0.82 | -2.4741 | -0.5290 | -2.27 | 0.99 | 0.59 |
 
 Choice: **constant**.
 
@@ -126,7 +126,7 @@ RBI inter-bank forward premia, monthly average (% a year), Jun 2026: 3-month 3.1
 
 Premium over the policy-rate gap (3-month premium − (India policy rate − Fed funds)): +1.23 pp in Jun 2026, above 86% of months since 2000 (mean -0.37, sd 1.64). A high spread means dollars for future delivery cost more than the rate gap justifies: hedging demand and expected depreciation beyond carry.
 
-Does the spread predict next month's rupee move? Coefficient -0.048% per pp (t -0.6); controlling for next month's dollar move -0.073 (t -1.2).
+Does the spread predict next month's rupee move? Coefficient -0.048% per pp (t -0.6); controlling for next month's dollar move -0.074 (t -1.2).
 
 | UIP test | Sample | n | Slope (UIP = 1) | t vs 0 | t vs 1 | R² |
 |---|---|---|---|---|---|---|
@@ -352,11 +352,11 @@ The headline was re-run on the earlier RBI vintage (DBIE Excel files in data/raw
 
 Point-in-time composite readings changed in 30 of 267 months (Jul 2004–Sep 2026): mean absolute change 0.014 pp, largest 0.48 pp (Jun 2026); by component, REER 0.000 pp and FEER 0.024 pp on average. Latest common month Sep 2026: +16.11% on the earlier vintage, +15.65% now. This is a lower bound on the revision effect (the earlier files are themselves partly revised); `python -m inrfv.vintages run <git-rev>` re-runs any committed vintage.
 
-US CPI inflation: ALFRED real-time vintages from Jan 2000; versus the revised series the mean absolute difference is 0.035 pp (largest 0.22 pp).
+US CPI inflation: ALFRED real-time vintages from Jan 2000; versus the revised series the mean absolute difference is 0.036 pp (largest 0.36 pp).
 
 ## Diagnostics
 
-- BEER Engle-Granger (4 vars, n=320): stat -1.35, 5% critical -4.13, p = 0.972.
+- BEER Engle-Granger (4 vars, n=320): stat -1.37, 5% critical -4.13, p = 0.971.
 - Johansen PPP [log INR, log CPI India, log CPI US]: rank 0 of 3 (sequential trace, 5%, k_ar_diff=1, n=319).
 - DXY splice: ratio 1.1937; log change at seam 2006-01: -2.40%.
 - India CPI: official MOSPI CPI-Combined (inflation as published at the time). Segments: CPI-IW chained 1988-10–2010-12; MOSPI 2012 back series x LF 2011-01–2012-12; MOSPI 2012 x LF 2013-01–2025-12; MOSPI 2024 (chained) 2026-01–2026-08. Linking factor 2012→2024 0.5267 (2025 overlap ratio 0.5267); CPI-IW 1982→2001 factor 4.63. Inflation vs the old OECD series: corr 0.966, mean |diff| 0.41pp.
@@ -366,7 +366,7 @@ US CPI inflation: ALFRED real-time vintages from Jan 2000; versus the revised se
 
 ## RBI data sources
 
-RBIH Data API merged with DBIE Excel (later vintage preferred). API fetched 2026-10-02T10:22:30+00:00, mirror loaded 2026-10-02T10:18:30.
+RBIH Data API merged with DBIE Excel (later vintage preferred). API fetched 2026-10-15T10:53:04+00:00, mirror loaded 2026-10-15T10:44:21.
 
 | Series | API range | Excel range | Later vintage | Overlap | Revised | Unexpected diffs |
 |---|---|---|---|---|---|---|
@@ -395,7 +395,7 @@ RBIH Data API merged with DBIE Excel (later vintage preferred). API fetched 2026
 
 ## Series end dates (reference month)
 
-inr_usd 2026-09, reer 2026-07, neer 2026-07, fx_reserves_usd_mn 2026-08, exports_usd_mn 2026-06, imports_usd_mn 2026-06, fdi_usd_mn 2026-06, fpi_usd_mn 2026-06, dxy 2026-09, cpi_us 2026-08, fed_funds_rate 2026-09, vix 2026-09, us_10y_yield 2026-09, brent 2026-09, fed_balance_sheet 2026-09, india_stir 2026-07, cpi_india 2026-08, cpi_india_yoy 2026-08, india_policy_rate 2026-07, india_repo_rate 2026-09, india_wacr 2026-03, fwd_premium_1m 2026-06, fwd_premium_3m 2026-06, fwd_premium_6m 2026-06, rbi_net_purchase_usd_mn 2026-07, rbi_fwd_book_usd_mn 2026-07, rbi_intervention_usd_mn 2026-07
+inr_usd 2026-09, reer 2026-07, neer 2026-07, fx_reserves_usd_mn 2026-08, exports_usd_mn 2026-06, imports_usd_mn 2026-06, fdi_usd_mn 2026-06, fpi_usd_mn 2026-06, dxy 2026-10, cpi_us 2026-09, fed_funds_rate 2026-09, vix 2026-10, us_10y_yield 2026-09, brent 2026-10, fed_balance_sheet 2026-10, india_stir 2026-07, cpi_india 2026-08, cpi_india_yoy 2026-08, india_policy_rate 2026-07, india_repo_rate 2026-09, india_wacr 2026-03, fwd_premium_1m 2026-06, fwd_premium_3m 2026-06, fwd_premium_6m 2026-06, rbi_net_purchase_usd_mn 2026-07, rbi_fwd_book_usd_mn 2026-07, rbi_intervention_usd_mn 2026-07
 
 ## Charts
 
